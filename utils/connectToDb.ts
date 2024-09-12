@@ -6,7 +6,7 @@ function connectToDb() {
 
     return;
   }
-  mongoose.connect("mongodb://localhost:27017/refresh-token");
+  mongoose.connect("mongodb+srv://bahaminwp:bahamin1364@bahamincluster.zht7zml.mongodb.net/refresh-token");
   // console.log("connected :))))");
 }
 

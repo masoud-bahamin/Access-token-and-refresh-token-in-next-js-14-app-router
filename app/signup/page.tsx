@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -13,8 +14,23 @@ function Signup() {
       body: JSON.stringify({ email, password }),
     });
     console.log(res);
-    const data = await res.json();
-    console.log(data);
+    if (res.ok) {
+      const data = await res.json();
+      console.log(data);
+      Swal.fire({
+        icon: "success",
+        text: "register successfull",
+        confirmButtonColor: "gray"
+      })
+      window.location.href = "/dashboard"
+    } else {
+      Swal.fire({
+        text: "try again",
+        icon: "error",
+        confirmButtonColor: "gray"
+      })
+    }
+
   };
 
   return (
